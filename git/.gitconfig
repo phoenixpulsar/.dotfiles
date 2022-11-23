@@ -10,3 +10,4 @@
   st = status
   co = checkout
   cam = commit -am
+  pom = push origin master
