@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Phoenix Pulsar
+	email = phoenixpulsar@protonmail.com
+
+[alias]
+  a = add
+  l = log
+  st = status
+  co = checkout
+  cam = commit -am
