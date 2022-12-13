@@ -10,4 +10,5 @@ nnoremap("<leader>ff", "<cmd>Telescope find_files<CR>")
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<CR>")
 nnoremap("<C-j>", ":cnext<CR>")
 nnoremap("<C-k>", ":cprev<CR>")
+nnoremap("<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
 
