@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+
+# YOU HAVE TO BE IN TMUX AND RUNNING FOR THIS TO WORK
+
+# find in these folders and pipe to fzf
+session=$(find ~ ~/personal ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
+
+# basename, a core util, gives us the last name in the path
+# session_name can not contain periods like .dotfiles etc
+# so we replace the period with _ 
+# we use tr to remove dots, to test how tr works do:
+# echo "foo" | tr o 1 ==> f11
+session_name=$(basename "$session" | tr . _)
+# test/debug by: echo "session $session_name"
+
+# if it can find session_name it prints out to std err so we pipe it to dev/null
+if ! tmux has-sesssion -t "session_name" 2> /dev/null; then
+  # if no session, create new session with "$session_name"
+  # and a directory "$session" and we detach
+  tmux new-session -s "$session_name" -c "$session" -d
+fi
+
+tmux switch-client -t "$session_name"
