@@ -20,14 +20,18 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   -- Vsnip Snipets
   use 'neovim/nvim-lspconfig'
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp' --Completions Plugin
+  use 'hrsh7th/cmp-buffer' --Buffer completions
+  use 'hrsh7th/cmp-path' -- path completions
+  use 'hrsh7th/cmp-cmdline' -- command line completions
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
 
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "rafamadriz/friendly-snippets"
+
   -- AutoPairs
   use {
 	"windwp/nvim-autopairs",

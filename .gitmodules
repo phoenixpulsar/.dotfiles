@@ -1,3 +1,0 @@
-[submodule "repo-container/other-projects/repoContainerSubModule"]
-	path = repo-container/other-projects/repoContainerSubModule
-	url = git@github.com:phoenixpulsar/repoContainerSubModule.git
