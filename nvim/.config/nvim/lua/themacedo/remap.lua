@@ -11,4 +11,7 @@ nnoremap("<leader>fg", "<cmd>Telescope live_grep<CR>")
 nnoremap("<C-j>", ":cnext<CR>")
 nnoremap("<C-k>", ":cprev<CR>")
 nnoremap("<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
-
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("N", "Nzzzv")
+nnoremap("n", "nzzzv")
