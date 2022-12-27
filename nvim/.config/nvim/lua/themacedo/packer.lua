@@ -16,10 +16,14 @@ return require('packer').startup(function(use)
     -- either with a range like :7,17Commentary, or as part of a :global
     -- invocation like with :g/TODO/Commentary. That's it.
   use 'tpope/vim-commentary'
+  
   -- Git Vim Fugitive 
   use 'tpope/vim-fugitive'
-  -- Vsnip Snipets
+
+  -- LSP 
   use 'neovim/nvim-lspconfig'
+  use 'williamboman//nvim-lsp-installer'
+
   -- Autocompletion
   use 'hrsh7th/nvim-cmp' --Completions Plugin
   use 'hrsh7th/cmp-buffer' --Buffer completions
