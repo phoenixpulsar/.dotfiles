@@ -1,4 +1,4 @@
-print("Sup, from macedo")
+-- print("Sup, from macedo")
 require("macedo.remap")
 require("macedo.set")
 

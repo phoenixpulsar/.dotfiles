@@ -11,7 +11,7 @@
 --   print "Welcome to the Machine\n"
 -- end
 
-print("Sup, from init.lua")
+-- print("Sup, from init.lua")
 require("macedo")
 
 

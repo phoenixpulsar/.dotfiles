@@ -3,30 +3,35 @@
 hyper - i : open -a /Applications/iTerm.app/Contents/MacOS/iTerm2
 hyper - return : open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 hyper - f : open -a /Applications/Figma.app/Contents/MacOS/Figma
-
-#hyper - backspace : open -a /Applications/Brave Browser.app/Contents/MacOS/Brave Browser
-
 hyper - b : open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
-hyper - n : open -a /System/Applications/Notes.app/Contents/MacOS/Notes
-
-
- 
- 
-# Communication
-#hyper - s : open -a /Applications/Slack.app/Contents/MacOS/Slack
-
-# Music
+# hyper - n : open -a /System/Applications/Notes.app/Contents/MacOS/Notes
 hyper - m : open -a /Applications/Spotify.app/Contents/MacOS/Spotify
-
 # Vault
 hyper - v : open -a /Applications/Obsidian.app/Contents/MacOS/Obsidian
+#hyper - s : open -a /Applications/Slack.app/Contents/MacOS/Slack
 
 
 #Yabai
 hyper - e : yabai -m window --toggle zoom-fullscreen
 hyper - r : yabai -m space --rotate 90
-# swap managed window
 shift + alt - h : yabai -m window --swap north
+
+# ----------------------------------------------------------------------
+# hyper - u : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "then yabai -m window --space 2;"
+# hyper - 2 : yabai -m space --focus 2
+# hyper - 2 : yabai -m space --focus 2 && yabai -m space --use 2
+hyper - n : yabai -m query --spaces --space | jq -re ".index" | xargs -I {} bash -c "if [[ '{}' = '1' ]]; then yabai -m window --space 2; elif [[ '{}' = '2' ]]; then yabai -m window --space 1; fi"
+
+
+# hyper - 2 is the keyboard shortcut that triggers the command.
+# yabai -m query --spaces --space gets the current focused space information using Yabai.
+# jq -re ".index" parses the JSON output from the previous command and extracts the space index.
+# xargs -I {} sh -c 'yabai -m window --space 2' passes the space index as an argument to the yabai -m window --space 2 command, which moves the current focused window to the specified space (in this case, space 2).
+# Note: Make sure you have the jq command installed on your system, as it is used to parse the JSON output of yabai -m query
+#
+# ----------------------------------------------------------------------
+
+# swap managed window
 
 ## swap managed window
 #shift + alt - h : yabai -m window --swap west
