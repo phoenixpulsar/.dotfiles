@@ -5,7 +5,7 @@
 
 
 # find in these folders and pipe to fzf
-session=$(find ~ ~/personal ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
+session=$(find ~ ~/personal ~/work ~/.dotfiles/nvim -mindepth 1 -maxdepth 1 -type d | fzf)
 
 # basename, a core util, gives us the last name in the path
 # session_name can not contain periods like .dotfiles etc
@@ -14,15 +14,26 @@ session=$(find ~ ~/personal ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
 # echo "foo" | tr o 1 ==> f11
 session_name=$(basename "$session" | tr . _)
 # test/debug by uncommenting next line: 
-echo "session $session_name"
+# echo "session $session_name"
 
 # if it can find session_name it prints out to std err so we pipe it to dev/null
-if ! tmux has-sesssion -t "session_name" 2> /dev/null; then
+if ! tmux has-session -t "$session_name" 2> /dev/null; then
   # if no session, create new session with "$session_name"
   # and a directory "$session" and we detach
   tmux new-session -s "$session_name" -c "$session" -d
+  tmux rename-window -t "$session_name:0" "root"
+  tmux new-window -t "$session_name" -n terminal -c "$session" -d
+  # tmux new-window -t "$session_name" -n code -c "$session" -d
+  tmux split-window -v -t "$session_name:1" -c "$session"
+
 fi
 
 
+tmux switch-client -t "$session_name:root"
 
-tmux switch-client -t "$session_name"
+tmux send-keys -t "$session_name:0" "nvim ." Enter
+
+# clean up session started when tmux starts
+if tmux has-session -t 0; then
+    tmux kill-session -t 0
+fi

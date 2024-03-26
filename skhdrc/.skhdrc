@@ -4,6 +4,8 @@ hyper - i : open -a /Applications/iTerm.app/Contents/MacOS/iTerm2
 hyper - return : open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 hyper - f : open -a /Applications/Figma.app/Contents/MacOS/Figma
 hyper - b : open -a /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
+hyper - p : open -a /Applications/PokerStars.net.app/Contents/MacOS/PokerStars.net
+
 # hyper - n : open -a /System/Applications/Notes.app/Contents/MacOS/Notes
 hyper - m : open -a /Applications/Spotify.app/Contents/MacOS/Spotify
 # Vault

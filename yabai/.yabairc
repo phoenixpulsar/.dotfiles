@@ -27,7 +27,7 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
 # general space settings
-yabai -m config layout                       bsp
+yabai -m config layout                       float
 yabai -m config top_padding                  5
 yabai -m config bottom_padding               0  
 yabai -m config left_padding                 5
@@ -49,6 +49,7 @@ yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Zoom$" sticky=on layer=above manage=off
 
 
 

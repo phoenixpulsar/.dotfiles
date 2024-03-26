@@ -11,3 +11,5 @@
   co = checkout
   cam = commit -am
   pom = push origin master
+[core]
+	excludesfile = /Users/macedo/Library/Mobile
