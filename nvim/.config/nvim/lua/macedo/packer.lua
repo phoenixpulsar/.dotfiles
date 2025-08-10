@@ -8,10 +8,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  
   -- Theme
   use 'arcticicestudio/nord-vim'
-  
+
   -- Fuzzy Finder Telescope
   -- source: https://github.com/nvim-telescope/telescope.nvim
   use {
@@ -76,12 +75,10 @@ return require('packer').startup(function(use)
 
   -- AutoPairs
   use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
   }
 
-  
   -- use("github/copilot.vim")
 
-  
 end)
