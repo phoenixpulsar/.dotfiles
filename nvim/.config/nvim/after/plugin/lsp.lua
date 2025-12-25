@@ -46,10 +46,28 @@ local cmp = require('cmp')
 cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'luasnip' }, -- add this
   },
   mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>']     = cmp.mapping.confirm({ select = false }),
+    ['<C-Space>']= cmp.mapping.complete(),
+    -- NEW: Tab / Shift-Tab to expand or jump through snippet fields
+    ['<Tab>'] = function(fallback)
+      local luasnip = require('luasnip')
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      local luasnip = require('luasnip')
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end,
   }),
   snippet = {
     expand = function(args)
@@ -57,4 +75,3 @@ cmp.setup({
     end,
   },
 })
-
